@@ -1,0 +1,105 @@
+﻿<Window x:Class="cakuliator.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cakuliator"
+        mc:Ignorable="d"
+        Title="Ввод данных" Height="450" Width="800" MinHeight="300" MinWidth="500" WindowStartupLocation="CenterScreen">
+    <Grid>
+ 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        
+        <Grid Grid.Row="1" Grid.ColumnSpan="3" Margin="10 0 10 0 ">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Формула:" VerticalAlignment="Bottom" FontSize="20"/>
+                <TextBlock Grid.Row="1" Text="ax2 + bx + c = 0" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" FontStyle="Italic"/>
+            </StackPanel>
+
+            
+            <TextBox
+                x:Name="PerA_tb"
+                FontSize="15"
+                VerticalAlignment="Top"
+                PreviewTextInput="NumericOnly"
+                MaxLength="3"
+                Grid.Row="2"
+                materialDesign:HintAssist.Hint="Переменная a"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" CaretBrush="#FF00E676" SelectionBrush="#FF68FFB6"
+            />
+            <TextBox
+                x:Name="PerB_tb"
+                FontSize="15"
+                VerticalAlignment="Top"
+                PreviewTextInput="NumericOnly"
+                MaxLength="3"
+                Grid.Row="3"
+                materialDesign:HintAssist.Hint="Переменная b"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            />
+            <TextBox
+                x:Name="PerC_tb"
+                FontSize="15"
+                PreviewTextInput="NumericOnly"
+                MaxLength="3"
+                Grid.Row="4"
+                materialDesign:HintAssist.Hint="Переменная c"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            />
+        </Grid>
+
+        <TextBlock x:Name="PermA_txbl" Grid.Row="2" Text="Переменная a"/>
+        <TextBlock x:Name="PermB_txbl" Grid.Row="2" Grid.Column="1" Text="Переменная b"/>
+        <TextBlock x:Name="PermC_txbl" Grid.Row="2" Grid.Column="2" Text="Переменная c"/>
+
+        <Button
+            x:Name="TapeDan_btn"
+            Margin="5"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Content="Ввод данных" Background="#FF00E676" Foreground="Black" BorderBrush="#FF00E676" Click="TapeDan_btn_Click"/>
+
+        <Button
+            x:Name="Answer_btn"
+            Margin="5"
+            Grid.Column="1"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Content="Ответы" Background="#FF00E676" Foreground="Black" BorderBrush="#FF00E676" Click="Answer_btn_Click"/>
+
+        <Button
+            x:Name="History_btn"
+            Margin="5"
+            Grid.Column="2"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Content="История" Background="#FF00E676" Foreground="Black" BorderBrush="#FF00E676" Click="History_btn_Click"/>
+
+        <Button
+            x:Name="Result_btn"
+            Margin="5"
+            Grid.Row="3"
+            Grid.ColumnSpan="3"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Content="Решить" Background="#FF00E676" Foreground="Black" BorderBrush="#FF00E676" Click="Result_btn_Click"/>
+    </Grid>
+</Window>
